@@ -1,12 +1,41 @@
 doctype html
-html(lang="en-US")
+html(lang="en-US", ng-app="angularAddresses")
   head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     title Angular Addresses
+    link(rel="stylesheet" href="lib/build.css")
+    link(rel="stylesheet" href="js/main.css")
   body
     .container
+      nav
+        ul
+          li: a(href="/#/") Home
+          li: a(href="/#/contact") Contact
+          li: a(href="/#/about") About
+          li: a(href="/#/404") 404
+          li: a(href="/#/people") Go to App
+          li(ng-hide="auth"): a(href="/#/login") Login
+          li(ng-show="auth"): a(href="/#/logout") Logout
+      .app(ng-view)
 
     script(src="lib/build.js")
-    script(src="js/main.js")
+
+    script(src="js/main.module.js")
+    script(src="js/main.run.js")
+    script(src="js/main.constants.js")
+    script(src="js/main.filters.js")
+
+    script(src="js/static/static.config.js")
+
+    script(src="js/auth/auth.config.js")
+    script(src="js/auth/login.controller.js")
+    script(src="js/auth/logout.controller.js")
+
+    script(src="js/people/edit.controller.js")
+    script(src="js/people/new.controller.js")
+    script(src="js/person/people.config.js")
+    script(src="js/people/people.controller.js")
+    script(src="js/people/person.controller.js")
+    script(src="js/people/person.factory.js")
